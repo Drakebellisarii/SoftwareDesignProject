@@ -12,6 +12,17 @@ package edu.trincoll.hr
 //
 // It should override the toString method to return a string with the
 // name, id, rate, and hours of the employee.
-class Hourly (
-) {
+class Hourly (name: String, id: Int, val rate: Double, val hours: Double=80.0): Employee(name,id)
+{
+    // Override the abstract pay method to calculate pay
+    override fun pay(): Double {
+        return rate * hours
+    }
+
+    // Override the toString method to include name, id, rate, and hours
+    override fun toString(): String {
+        return "Hourly(name=$name, id=$id, rate=$rate, hours=$hours)"
+    }
 }
+
+

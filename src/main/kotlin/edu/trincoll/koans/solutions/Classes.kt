@@ -1,15 +1,8 @@
-<<<<<<< HEAD:src/main/kotlin/edu/trincoll/koans/Classes.kt
-package edu.trincoll.koans
-import kotlin.random.Random as KRandom
-import java.util.Random as JRandom
-=======
 package edu.trincoll.koans.solutions
 
-// Rename on import
 import kotlin.random.Random as KRandom
 import java.util.Random as JRandom
 
->>>>>>> upstream/main:src/main/kotlin/edu/trincoll/koans/solutions/Classes.kt
 // Data classes
 data class Person(val name: String, val age: Int)
 
@@ -27,32 +20,20 @@ fun comparePeople(): Boolean {
 fun evalSmartCasts(expr: Expr): Int =
     when (expr) {
         is Num -> expr.value
-<<<<<<< HEAD:src/main/kotlin/edu/trincoll/koans/Classes.kt
-        is Sum -> eval(expr.left)+eval(expr.right)
+        is Sum -> evalSmartCasts(expr.left) + evalSmartCasts(expr.right)
         else -> throw IllegalArgumentException("Unknown expression")
     }
 
 sealed interface Expr
-
-=======
-        is Sum -> evalSmartCasts(expr.left) + evalSmartCasts(expr.right)
-    }
-
-sealed interface Expr
->>>>>>> upstream/main:src/main/kotlin/edu/trincoll/koans/solutions/Classes.kt
 class Num(val value: Int) : Expr
 class Sum(val left: Expr, val right: Expr) : Expr
+
 // Sealed classes
 fun eval(expr: Expr): Int =
     when (expr) {
         is Num -> expr.value
         is Sum -> eval(expr.left) + eval(expr.right)
-<<<<<<< HEAD:src/main/kotlin/edu/trincoll/koans/Classes.kt
-     }
-=======
     }
-
->>>>>>> upstream/main:src/main/kotlin/edu/trincoll/koans/solutions/Classes.kt
 
 fun useDifferentRandomClasses(): String {
     return "Kotlin random: " +
@@ -60,7 +41,7 @@ fun useDifferentRandomClasses(): String {
             " Java random:" +
             JRandom().nextInt(2) +
             "."
-        }
+}
 
 // Extension functions
 fun Int.r(): RationalNumber = RationalNumber(this, 1)
